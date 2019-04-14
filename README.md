@@ -18,5 +18,5 @@ Simple Java Web MVC Project based on Spring Web MVC.
 The Application is Java Configured and annotation driven.
 Front end is made using bootstrap and mbd projects.
 
-#0.1Snapshot
+# 0.1Snapshot
 Project is in its initial Stage.
