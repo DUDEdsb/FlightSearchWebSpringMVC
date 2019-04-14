@@ -12,6 +12,10 @@
 	rel="stylesheet">
 <link href="<c:url value="/resources/fontawesome.min.css" />"
 	rel="stylesheet">
+<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+<script src="<c:url value="/resources/js/mdb.min.js" />"></script>
+<script src="<c:url value="/resources/js/waves.js" />"></script>
+<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
 </head>
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue scrolling-navbar">

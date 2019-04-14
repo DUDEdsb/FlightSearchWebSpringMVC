@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -11,6 +12,7 @@
 <link href="<c:url value="/resources/mdb.min.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/fontawesome.min.css" />"
 	rel="stylesheet">
+<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 </head>
 <header>
 	<nav
@@ -24,14 +26,13 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="<c:url value="/" />">Home <span
-						class="sr-only">(current)</span></a></li>
-				<li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/flights"/>">Search Flights</a>
-                </li>
-				<li class="nav-item active"><a class="nav-link"
-					href="<c:url value="/login"/>">Sign In</a></li>
 				<li class="nav-item"><a class="nav-link"
+					href="<c:url value="/" />">Home <span class="sr-only">(current)</span></a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="<c:url value="/flights"/>">Search Flights</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="<c:url value="/login"/>">Sign In</a></li>
+				<li class="nav-item active"><a class="nav-link"
 					href="<c:url value="#"/>">Sign Up?</a></li>
 			</ul>
 		</div>
@@ -53,20 +54,30 @@
 						</div>
 						<!-- Card content -->
 						<div class="card-body">
-							<!-- Title -->
-							<h4 class="h3-responsive card-title">Login</h4>
-							<!-- Text -->
-							<form action="">
-								<input type="text" placeholder="Username"
-									class="form-control mb-4"> <input type="password"
-									placeholder="Password" class="form-control mb-4">
-								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input"
-										id="isAdmin"> <label class="custom-control-label"
-										for="isAdmin">Admin?</label>
+						
+						
+							<c:if test="${not empty msg}">
+								<div class="alert alert-${css} alert-dismissible" role="alert">
+									<button type="button" class="close" data-dismiss="alert"
+										aria-label="Close">
+										<span aria-hidden="true">×</span>
+									</button>
+									<strong>${msg}</strong>
 								</div>
-								<input type="submit" class="btn btn-success" value="Register">
-							</form>
+							</c:if>
+							
+							
+							<!-- Title -->
+							<h4 class="h3-responsive card-title">Register Here</h4>
+							<!-- Text -->
+							<form:form method="POST" modelAttribute="registerForm" >
+								<form:input type="email" placeholder="Username"
+									class="form-control mb-4" path="username"></form:input>
+								<form:input type="password" placeholder="Password"
+									class="form-control mb-4" path="password"></form:input>
+								<input type="submit" class="btn btn-success" value="Register"
+									action="<c:url value="/register"/>">
+							</form:form>
 						</div>
 					</div>
 				</div>

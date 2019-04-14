@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,17 +57,14 @@
 							<!-- Title -->
 							<h4 class="h3-responsive card-title">Login</h4>
 							<!-- Text -->
-							<form action="">
-								<input type="text" placeholder="Username"
-									class="form-control mb-4"> <input type="password"
-									placeholder="Password" class="form-control mb-4">
-								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input"
-										id="isAdmin"> <label class="custom-control-label"
-										for="isAdmin">Admin?</label>
-								</div>
-								<input type="submit" class="btn btn-success" value="Login">
-							</form>
+							<form:form method="POST" modelAttribute="loginForm" >
+								<form:input type="email" placeholder="Username"
+									class="form-control mb-4" path="username"></form:input>
+								<form:input type="password" placeholder="Password"
+									class="form-control mb-4" path="password"></form:input>
+								<input type="submit" class="btn btn-success" value="Login"
+									action="<c:url value="/login"/>">
+							</form:form>
 						</div>
 					</div>
 				</div>

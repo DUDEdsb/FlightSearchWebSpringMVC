@@ -13,6 +13,16 @@
 <link href="<c:url value="/resources/fontawesome.min.css" />"
 	rel="stylesheet">
 </head>
+<%
+	String name = (String)session.getAttribute("username");
+	if(name!= null){
+		String cssClass = " d-none ";
+		String notCssClass = " ";
+	}else {
+		String cssClass = " ";
+		String notCssClass = "d-none";
+	}
+%>
 <header>
   		<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark scrolling-navbar">
 		<a class="navbar-brand" href="<c:url value="/" />"><strong>FlightSearch</strong></a>
@@ -27,15 +37,16 @@
 				<li class="nav-item"><a class="nav-link" href="<c:url value="/" />">Home <span
 						class="sr-only">(current)</span></a></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/flights"/>">Search Flights</a>
+                    <a class="nav-link active" href="<c:url value="#"/>">Search Flights</a>
                 </li>
                  <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/login"/>">Sign In</a>
+                    <a class="nav-link ${cssClass}" href="<c:url value="/login"/>">Sign In</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/register"/>">Sign Up?</a>
+                    <a class="nav-link ${cssClass}" href="<c:url value="/register"/>">Sign Up?</a>
                 </li>
             </ul>
+            <span class="nav-text text-white ${notcssClass} }"><%= name%></span>
         </div>
     </nav>
 </header>

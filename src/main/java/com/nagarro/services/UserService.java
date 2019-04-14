@@ -2,15 +2,14 @@ package com.nagarro.services;
 
 import java.util.List;
 
-import org.springframework.transaction.annotation.Transactional;
-
+import com.nagarro.constants.UserEnum;
 import com.nagarro.entities.User;
 
 public interface UserService {
 
 	List<User> getUsers();
 
-	void saveUser(User saveToDB);
+	UserEnum saveUser(User saveToDB);
 
 	User getUser(long id);
 

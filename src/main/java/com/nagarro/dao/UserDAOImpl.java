@@ -57,4 +57,20 @@ public class UserDAOImpl implements UserDAO {
 		User gotUserFromDB = currentSession.get(User.class, id);
 		return gotUserFromDB;
 	}
+
+	@Override
+	public User getUserByName(String name) {
+		Session session = sessionFactory.getCurrentSession();
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaQuery<User> cq = cb.createQuery(User.class);
+		Root<User> root = cq.from(User.class);
+		cq.select(root).where(cb.like(root.get("username"), name));
+		Query query = session.createQuery(cq);
+		List<User> userList = query.getResultList();
+		if (userList.size() != 0) {
+			return userList.get(0);
+		} else {
+			return null;
+		}
+	}
 }
