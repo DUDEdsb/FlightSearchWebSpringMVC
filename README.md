@@ -19,4 +19,4 @@ The Application is Java Configured and annotation driven.
 Front end is made using bootstrap and mbd projects.
 
 # 0.1Snapshot
-Project is in its initial Stage.
+Project is in its initial Stage. User can login and register now.
